@@ -89,7 +89,7 @@ LOCAL_MYSQL_HOST = 'localhost'
 LOCAL_MYSQL_PORT = '3306'
 
 
-if DEBUG:
+if not DEBUG:
     DATABASES = {
         'default': {   
             'ENGINE': 'django.db.backends.mysql',
