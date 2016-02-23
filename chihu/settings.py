@@ -78,7 +78,7 @@ MYSQL_HOST = 'w.rdc.sae.sina.com.cn'
 MYSQL_PORT = '3307'
 MYSQL_USER = '3ww0j1o0lz'
 MYSQL_PASS = '2hzli2x4xh401hylkwh2k0zx3xhmk4lm3z5zjxm2'
-MYSQL_DB   = 'chihusysu'
+MYSQL_DB   = 'app_chihusysu'
 
 DATABASES = {
     'default': {
