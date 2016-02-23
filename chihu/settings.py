@@ -74,22 +74,44 @@ WSGI_APPLICATION = 'chihu.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
-MYSQL_HOST = 'w.rdc.sae.sina.com.cn'
-MYSQL_PORT = '3307'
-MYSQL_USER = '3ww0j1o0lz'
-MYSQL_PASS = '2hzli2x4xh401hylkwh2k0zx3xhmk4lm3z5zjxm2'
-MYSQL_DB   = 'app_chihusysu'
+#from sae
+SAE_MYSQL_HOST = 'w.rdc.sae.sina.com.cn'
+SAE_MYSQL_PORT = '3307'
+SAE_MYSQL_USER = '3ww0j1o0lz'
+SAE_MYSQL_PASS = '203x20hi2lwikki1mjwmzx32ijwkhj4l0y45jiy1'
+SAE_MYSQL_DB   = 'app_chihusysu'
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'UAME': MYSQL_DB,
-        'USER': MYSQL_USER,
-        'PASSWORD': MYSQL_PASS,
-        'HOST': MYSQL_HOST,
-        'PORT': MYSQL_PORT,
+#local db setting
+LOCAL_MYSQL_DB = 'chihu'
+LOCAL_MYSQL_USER = 'chen'
+LOCAL_MYSQL_PASS = 'chen'
+LOCAL_MYSQL_HOST = 'localhost'
+LOCAL_MYSQL_PORT = '3306'
+
+
+if DEBUG:
+    DATABASES = {
+        'default': {   
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': SAE_MYSQL_DB,
+            'USER': SAE_MYSQL_USER,
+            'PASSWORD': SAE_MYSQL_PASS,
+            'HOST': SAE_MYSQL_HOST,
+            'PORT': SAE_MYSQL_PORT,
+        }
+    }    
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': LOCAL_MYSQL_DB,
+            'USER': LOCAL_MYSQL_USER,
+            'PASSWORD': LOCAL_MYSQL_PASS,
+            'HOST': LOCAL_MYSQL_HOST,
+            'PORT': LOCAL_MYSQL_PORT,
+        }
     }
-}
+        
 
 
 # Internationalization
