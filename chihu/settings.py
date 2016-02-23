@@ -74,10 +74,20 @@ WSGI_APPLICATION = 'chihu.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
+MYSQL_HOST = 'w.rdc.sae.sina.com.cn'
+MYSQL_PORT = '3307'
+MYSQL_USER = '3ww0j1o0lz'
+MYSQL_PASS = '2hzli2x4xh401hylkwh2k0zx3xhmk4lm3z5zjxm2'
+MYSQL_DB   = 'chihusysu'
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'UAME': MYSQL_DB,
+        'USER': MYSQL_USER,
+        'PASSWORD': MYSQL_PASS,
+        'HOST': MYSQL_HOST,
+        'PORT': MYSQL_PORT,
     }
 }
 
