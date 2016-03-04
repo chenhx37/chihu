@@ -13,16 +13,17 @@ def index(request):
     return HttpResponse("what?index!")
 
 def registerCustomer(request):
-    if request.method == "POST":
-        body = request.body
-        userAccount = CHIHU_pb2.UserAccount()
-        userAccount = userAccount.FromString(body)
+    return HttpResponse("hello")
+    # if request.method == "POST":
+    #     body = request.body
+    #     userAccount = CHIHU_pb2.UserAccount()
+    #     userAccount = userAccount.FromString(body)
 
-        uname = userAccount.username
-        password=userAccount.password
-        email=userAccount.email
-    
-        return HttpResponse(username+" "+password+" "+email)
+    #     uname = userAccount.username
+    #     password=userAccount.password
+    #     email=userAccount.email
+
+    #     return HttpResponse(username+" "+password+" "+email)
 
         # if User.objects.filter(username=uname).exists():
         #     return HttpResponse("username already used!")
@@ -44,7 +45,7 @@ def registerCustomer(request):
 
         # return HttpResponse("register,"+user.get_username())
 
-    return HttpResponse("error")
+    # return HttpResponse("error")
 
 def pbtest(request):
     ua = CHIHU_pb2.UserAccount()
