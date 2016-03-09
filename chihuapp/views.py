@@ -13,39 +13,39 @@ def index(request):
     return HttpResponse("what?index!")
 
 def registerCustomer(request):
-    return HttpResponse("hello")
-    # if request.method == "POST":
-    #     body = request.body
-    #     userAccount = CHIHU_pb2.UserAccount()
-    #     userAccount = userAccount.FromString(body)
+    # return HttpResponse("hello")
+    if request.method == "POST":
+        body = request.body
+        userAccount = CHIHU_pb2.UserAccount()
+        userAccount = userAccount.FromString(body)
 
-    #     uname = userAccount.username
-    #     password=userAccount.password
-    #     email=userAccount.email
+        uname = userAccount.username
+        password=userAccount.password
+        email=userAccount.email
 
-    #     return HttpResponse(username+" "+password+" "+email)
+        return HttpResponse(username+" "+password+" "+email)
 
-        # if User.objects.filter(username=uname).exists():
-        #     return HttpResponse("username already used!")
+        if User.objects.filter(username=uname).exists():
+            return HttpResponse("username already used!")
         
-        # user = User.objects.create_user(uname)
+        user = User.objects.create_user(uname)
         
-        # password = userAccount.password
-        # user.set_password(password)
+        password = userAccount.password
+        user.set_password(password)
 
-        # email = userAccount.email
+        email = userAccount.email
         
 
 
-        # content_type = ContentType.objects.get_for_model(UserPermission)
-        # permission = Permission.objects.get(content_type=content_type,codename='customer')
+        content_type = ContentType.objects.get_for_model(UserPermission)
+        permission = Permission.objects.get(content_type=content_type,codename='customer')
         
-        # user.user_permissions.add(permission)
-        # user.save()
+        user.user_permissions.add(permission)
+        user.save()
 
-        # return HttpResponse("register,"+user.get_username())
+        return HttpResponse("register,"+user.get_username())
 
-    # return HttpResponse("error")
+    return HttpResponse("error")
 
 def pbtest(request):
     ua = CHIHU_pb2.UserAccount()
