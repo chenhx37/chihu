@@ -23,7 +23,7 @@ def registerCustomer(request):
         password=userAccount.password
         email=userAccount.email
 
-        return HttpResponse(username+" "+password+" "+email)
+        return HttpResponse(uname+" "+password+" "+email)
 
         if User.objects.filter(username=uname).exists():
             return HttpResponse("username already used!")
