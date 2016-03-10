@@ -28,7 +28,7 @@ def registerCustomer(request):
 
         if User.objects.filter(username=uname).exists():
             resp = chihu_pb2.Response()
-            resp.status = 'fail'
+            resp.status = chihu_pb2.fail
             resp.message = "用户名已存在"
             return HttpResponse(resp.SerializeToString())
         
@@ -42,7 +42,7 @@ def registerCustomer(request):
 
         if UserProfile.objects.filter(user=user).exists():
             resp = chihu_pb2.Response()
-            resp.status = 'fail'
+            resp.status = chihu_pb2.fail
             resp.message = "无法创建用户"
             return HttpResponse(resp.SerializeToString())
 
@@ -50,7 +50,7 @@ def registerCustomer(request):
         userProfile.save()
 
         resp = chihu_pb2.Response()
-        resp.status = 'succeed'
+        resp.status = chihu_pb2.succeed
         resp.message = '创建用户成功'
 
         return HttpResponse(resp.SerializeToString)
