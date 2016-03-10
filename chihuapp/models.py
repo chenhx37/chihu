@@ -24,6 +24,10 @@ class Dish(models.Model):
     dislike = models.IntegerField(default=0)
     score = models.FloatField(default=0)
 
+class DishAndNumberPair(models.Model):
+    dish = models.ForeignKey(Dish)
+    number = models.PositiveSmallIntegerField()
+
 class Order(models.Model):
     FINISHED = 0
     UNSCORED = 1
@@ -38,7 +42,7 @@ class Order(models.Model):
     start_time = models.DateTimeField()
     finish_time = models.DateTimeField()
     status = models.PositiveSmallIntegerField(choices=STATUS_CHOICES)
-    dish_list = models.ManyToManyField(Dish)
+    dish_list = models.ManyToManyField(DishAndNumberPair)
     total_price = models.FloatField()
     @staticmethod
     def count_total_price(instance,**kwargs):
@@ -52,9 +56,15 @@ class Order(models.Model):
     
 m2m_changed.connect(Order.count_total_price,sender=Order.dish_list.through)
 
+
 class UserProfile(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE)
     netid = models.CharField(max_length=30)
+    SUN_YAT_SAN_UNIVERSITY = 0
+    SCHOOL_CHOICES = (
+        (SUN_YAT_SAN_UNIVERSITY,'SunYatSanUniversity'),
+    )
+    school = models.PositiveSmallIntegerField(choices=SCHOOL_CHOICES)
 
 class Contact(models.Model):
     user = models.ForeignKey(UserProfile)
