@@ -61,10 +61,10 @@ class UserProfile(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE)
     netid = models.CharField(max_length=30)
     SUN_YAT_SAN_UNIVERSITY = 0
-    SCHOOL_CHOICES = (
-        (SUN_YAT_SAN_UNIVERSITY,'SunYatSanUniversity'),
-    )
-    school = models.PositiveSmallIntegerField(choices=SCHOOL_CHOICES)
+    # SCHOOL_CHOICES = (
+    #     (SUN_YAT_SAN_UNIVERSITY,'SunYatSanUniversity'),
+    # )
+    # school = models.PositiveSmallIntegerField(choices=SCHOOL_CHOICES)
 
 class Contact(models.Model):
     user = models.ForeignKey(UserProfile)

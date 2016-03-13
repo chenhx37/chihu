@@ -19,7 +19,7 @@ _sym_db = _symbol_database.Default()
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='chihu.proto',
   package='',
-  serialized_pb=_b('\n\x0b\x63hihu.proto\"4\n\x08Response\x12\x17\n\x06status\x18\x01 \x02(\x0e\x32\x07.Status\x12\x0f\n\x07message\x18\x02 \x01(\x0c\"Y\n\x0bUserAccount\x12\x10\n\x08username\x18\x01 \x02(\t\x12\x10\n\x08password\x18\x02 \x02(\t\x12\r\n\x05\x65mail\x18\x03 \x02(\t\x12\x17\n\x06school\x18\x04 \x02(\x0e\x32\x07.School\"5\n\x04Meal\x12\x10\n\x08imageUrl\x18\x01 \x02(\t\x12\x0c\n\x04name\x18\x02 \x02(\t\x12\r\n\x05price\x18\x03 \x02(\x02\"3\n\x11MealAndNumberPair\x12\x0e\n\x06mealId\x18\x01 \x02(\t\x12\x0e\n\x06number\x18\x02 \x02(\x05\"8\n\x13RegisterUserRequest\x12!\n\x0buserAccount\x18\x01 \x02(\x0b\x32\x0c.UserAccount\"4\n\x11\x43heckNetIdRequest\x12\r\n\x05netid\x18\x01 \x02(\t\x12\x10\n\x08password\x18\x02 \x02(\t\"\x15\n\x13ViewCanteensRequest\"%\n\x10ViewMealsRequest\x12\x11\n\tcanteenId\x18\x01 \x02(\t\"i\n\x10MakeOrderRequest\x12\x11\n\tcanteenId\x18\x01 \x02(\t\x12.\n\x12mealAndNumberPairs\x18\x02 \x03(\x0b\x32\x12.MealAndNumberPair\x12\x12\n\ntotalPrice\x18\x03 \x02(\x02\"-\n\x1a\x43ustomerFinishOrderRequest\x12\x0f\n\x07orderId\x18\x01 \x02(\t\"=\n\x1a\x43ustomerCancelOrderRequest\x12\x0f\n\x07orderId\x18\x01 \x02(\t\x12\x0e\n\x06reason\x18\x02 \x02(\x0c*$\n\x06School\x12\x1a\n\x16Sun_Yat_San_University\x10\x01*\x1f\n\x06Status\x12\x0b\n\x07succeed\x10\x01\x12\x08\n\x04\x66\x61il\x10\x02')
+  serialized_pb=_b('\n\x0b\x63hihu.proto\"4\n\x08Response\x12\x17\n\x06status\x18\x01 \x02(\x0e\x32\x07.Status\x12\x0f\n\x07message\x18\x02 \x01(\t\"Y\n\x0bUserAccount\x12\x10\n\x08username\x18\x01 \x02(\t\x12\x10\n\x08password\x18\x02 \x02(\t\x12\r\n\x05\x65mail\x18\x03 \x02(\t\x12\x17\n\x06school\x18\x04 \x02(\x0e\x32\x07.School\"2\n\x0cLoginRequest\x12\x10\n\x08username\x18\x01 \x02(\t\x12\x10\n\x08password\x18\x02 \x02(\t\"5\n\x04Meal\x12\x10\n\x08imageUrl\x18\x01 \x02(\t\x12\x0c\n\x04name\x18\x02 \x02(\t\x12\r\n\x05price\x18\x03 \x02(\x02\"3\n\x11MealAndNumberPair\x12\x0e\n\x06mealId\x18\x01 \x02(\t\x12\x0e\n\x06number\x18\x02 \x02(\x05\"8\n\x13RegisterUserRequest\x12!\n\x0buserAccount\x18\x01 \x02(\x0b\x32\x0c.UserAccount\"4\n\x11\x43heckNetIdRequest\x12\r\n\x05netid\x18\x01 \x02(\t\x12\x10\n\x08password\x18\x02 \x02(\t\"<\n\x07\x43\x61nteen\x12\x0c\n\x04name\x18\x01 \x02(\t\x12\x10\n\x08imageUrl\x18\x02 \x02(\t\x12\x11\n\topenTimes\x18\x03 \x03(\t\"\x15\n\x13ViewCanteensRequest\"2\n\x14ViewCanteensResponse\x12\x1a\n\x08\x63\x61nteens\x18\x01 \x03(\x0b\x32\x08.Canteen\"%\n\x10ViewMealsRequest\x12\x11\n\tcanteenId\x18\x01 \x02(\t\"i\n\x10MakeOrderRequest\x12\x11\n\tcanteenId\x18\x01 \x02(\t\x12.\n\x12mealAndNumberPairs\x18\x02 \x03(\x0b\x32\x12.MealAndNumberPair\x12\x12\n\ntotalPrice\x18\x03 \x02(\x02\"-\n\x1a\x43ustomerFinishOrderRequest\x12\x0f\n\x07orderId\x18\x01 \x02(\t\"=\n\x1a\x43ustomerCancelOrderRequest\x12\x0f\n\x07orderId\x18\x01 \x02(\t\x12\x0e\n\x06reason\x18\x02 \x02(\t*$\n\x06School\x12\x1a\n\x16Sun_Yat_San_University\x10\x01*\x1f\n\x06Status\x12\x0b\n\x07succeed\x10\x01\x12\x08\n\x04\x66\x61il\x10\x02')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -36,8 +36,8 @@ _SCHOOL = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=659,
-  serialized_end=695,
+  serialized_start=825,
+  serialized_end=861,
 )
 _sym_db.RegisterEnumDescriptor(_SCHOOL)
 
@@ -59,8 +59,8 @@ _STATUS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=697,
-  serialized_end=728,
+  serialized_start=863,
+  serialized_end=894,
 )
 _sym_db.RegisterEnumDescriptor(_STATUS)
 
@@ -87,8 +87,8 @@ _RESPONSE = _descriptor.Descriptor(
       options=None),
     _descriptor.FieldDescriptor(
       name='message', full_name='Response.message', index=1,
-      number=2, type=12, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b(""),
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -159,6 +159,43 @@ _USERACCOUNT = _descriptor.Descriptor(
 )
 
 
+_LOGINREQUEST = _descriptor.Descriptor(
+  name='LoginRequest',
+  full_name='LoginRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='username', full_name='LoginRequest.username', index=0,
+      number=1, type=9, cpp_type=9, label=2,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='password', full_name='LoginRequest.password', index=1,
+      number=2, type=9, cpp_type=9, label=2,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=160,
+  serialized_end=210,
+)
+
+
 _MEAL = _descriptor.Descriptor(
   name='Meal',
   full_name='Meal',
@@ -198,8 +235,8 @@ _MEAL = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=160,
-  serialized_end=213,
+  serialized_start=212,
+  serialized_end=265,
 )
 
 
@@ -235,8 +272,8 @@ _MEALANDNUMBERPAIR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=215,
-  serialized_end=266,
+  serialized_start=267,
+  serialized_end=318,
 )
 
 
@@ -265,8 +302,8 @@ _REGISTERUSERREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=268,
-  serialized_end=324,
+  serialized_start=320,
+  serialized_end=376,
 )
 
 
@@ -302,8 +339,52 @@ _CHECKNETIDREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=326,
-  serialized_end=378,
+  serialized_start=378,
+  serialized_end=430,
+)
+
+
+_CANTEEN = _descriptor.Descriptor(
+  name='Canteen',
+  full_name='Canteen',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='Canteen.name', index=0,
+      number=1, type=9, cpp_type=9, label=2,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='imageUrl', full_name='Canteen.imageUrl', index=1,
+      number=2, type=9, cpp_type=9, label=2,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='openTimes', full_name='Canteen.openTimes', index=2,
+      number=3, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=432,
+  serialized_end=492,
 )
 
 
@@ -325,8 +406,38 @@ _VIEWCANTEENSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=380,
-  serialized_end=401,
+  serialized_start=494,
+  serialized_end=515,
+)
+
+
+_VIEWCANTEENSRESPONSE = _descriptor.Descriptor(
+  name='ViewCanteensResponse',
+  full_name='ViewCanteensResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='canteens', full_name='ViewCanteensResponse.canteens', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=517,
+  serialized_end=567,
 )
 
 
@@ -355,8 +466,8 @@ _VIEWMEALSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=403,
-  serialized_end=440,
+  serialized_start=569,
+  serialized_end=606,
 )
 
 
@@ -399,8 +510,8 @@ _MAKEORDERREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=442,
-  serialized_end=547,
+  serialized_start=608,
+  serialized_end=713,
 )
 
 
@@ -429,8 +540,8 @@ _CUSTOMERFINISHORDERREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=549,
-  serialized_end=594,
+  serialized_start=715,
+  serialized_end=760,
 )
 
 
@@ -450,8 +561,8 @@ _CUSTOMERCANCELORDERREQUEST = _descriptor.Descriptor(
       options=None),
     _descriptor.FieldDescriptor(
       name='reason', full_name='CustomerCancelOrderRequest.reason', index=1,
-      number=2, type=12, cpp_type=9, label=2,
-      has_default_value=False, default_value=_b(""),
+      number=2, type=9, cpp_type=9, label=2,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -466,21 +577,25 @@ _CUSTOMERCANCELORDERREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=596,
-  serialized_end=657,
+  serialized_start=762,
+  serialized_end=823,
 )
 
 _RESPONSE.fields_by_name['status'].enum_type = _STATUS
 _USERACCOUNT.fields_by_name['school'].enum_type = _SCHOOL
 _REGISTERUSERREQUEST.fields_by_name['userAccount'].message_type = _USERACCOUNT
+_VIEWCANTEENSRESPONSE.fields_by_name['canteens'].message_type = _CANTEEN
 _MAKEORDERREQUEST.fields_by_name['mealAndNumberPairs'].message_type = _MEALANDNUMBERPAIR
 DESCRIPTOR.message_types_by_name['Response'] = _RESPONSE
 DESCRIPTOR.message_types_by_name['UserAccount'] = _USERACCOUNT
+DESCRIPTOR.message_types_by_name['LoginRequest'] = _LOGINREQUEST
 DESCRIPTOR.message_types_by_name['Meal'] = _MEAL
 DESCRIPTOR.message_types_by_name['MealAndNumberPair'] = _MEALANDNUMBERPAIR
 DESCRIPTOR.message_types_by_name['RegisterUserRequest'] = _REGISTERUSERREQUEST
 DESCRIPTOR.message_types_by_name['CheckNetIdRequest'] = _CHECKNETIDREQUEST
+DESCRIPTOR.message_types_by_name['Canteen'] = _CANTEEN
 DESCRIPTOR.message_types_by_name['ViewCanteensRequest'] = _VIEWCANTEENSREQUEST
+DESCRIPTOR.message_types_by_name['ViewCanteensResponse'] = _VIEWCANTEENSRESPONSE
 DESCRIPTOR.message_types_by_name['ViewMealsRequest'] = _VIEWMEALSREQUEST
 DESCRIPTOR.message_types_by_name['MakeOrderRequest'] = _MAKEORDERREQUEST
 DESCRIPTOR.message_types_by_name['CustomerFinishOrderRequest'] = _CUSTOMERFINISHORDERREQUEST
@@ -501,6 +616,13 @@ UserAccount = _reflection.GeneratedProtocolMessageType('UserAccount', (_message.
   # @@protoc_insertion_point(class_scope:UserAccount)
   ))
 _sym_db.RegisterMessage(UserAccount)
+
+LoginRequest = _reflection.GeneratedProtocolMessageType('LoginRequest', (_message.Message,), dict(
+  DESCRIPTOR = _LOGINREQUEST,
+  __module__ = 'chihu_pb2'
+  # @@protoc_insertion_point(class_scope:LoginRequest)
+  ))
+_sym_db.RegisterMessage(LoginRequest)
 
 Meal = _reflection.GeneratedProtocolMessageType('Meal', (_message.Message,), dict(
   DESCRIPTOR = _MEAL,
@@ -530,12 +652,26 @@ CheckNetIdRequest = _reflection.GeneratedProtocolMessageType('CheckNetIdRequest'
   ))
 _sym_db.RegisterMessage(CheckNetIdRequest)
 
+Canteen = _reflection.GeneratedProtocolMessageType('Canteen', (_message.Message,), dict(
+  DESCRIPTOR = _CANTEEN,
+  __module__ = 'chihu_pb2'
+  # @@protoc_insertion_point(class_scope:Canteen)
+  ))
+_sym_db.RegisterMessage(Canteen)
+
 ViewCanteensRequest = _reflection.GeneratedProtocolMessageType('ViewCanteensRequest', (_message.Message,), dict(
   DESCRIPTOR = _VIEWCANTEENSREQUEST,
   __module__ = 'chihu_pb2'
   # @@protoc_insertion_point(class_scope:ViewCanteensRequest)
   ))
 _sym_db.RegisterMessage(ViewCanteensRequest)
+
+ViewCanteensResponse = _reflection.GeneratedProtocolMessageType('ViewCanteensResponse', (_message.Message,), dict(
+  DESCRIPTOR = _VIEWCANTEENSRESPONSE,
+  __module__ = 'chihu_pb2'
+  # @@protoc_insertion_point(class_scope:ViewCanteensResponse)
+  ))
+_sym_db.RegisterMessage(ViewCanteensResponse)
 
 ViewMealsRequest = _reflection.GeneratedProtocolMessageType('ViewMealsRequest', (_message.Message,), dict(
   DESCRIPTOR = _VIEWMEALSREQUEST,

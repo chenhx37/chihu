@@ -9,7 +9,7 @@ fail = 2;
 
 message Response{
     required Status status = 1;
-    optional bytes message = 2;
+    optional string message = 2;
 }
 
 message UserAccount{
@@ -19,11 +19,17 @@ message UserAccount{
     required School school = 4;
 }
 
+message LoginRequest{
+    required string username = 1;
+    required string password = 2;
+}
+
 message Meal{
     required string imageUrl = 1;
     required string name = 2;
     required float price = 3;
 }
+
 
 message MealAndNumberPair{
     required string mealId = 1;
@@ -39,7 +45,17 @@ message CheckNetIdRequest{
     required string password = 2;
 }
 
+message Canteen{
+    required string name = 1;
+    required string imageUrl = 2;
+    repeated string openTimes = 3;
+}
+
 message ViewCanteensRequest{}
+
+message ViewCanteensResponse{
+    repeated Canteen canteens = 1;
+}
 
 message ViewMealsRequest{
     required string canteenId = 1;
@@ -57,5 +73,5 @@ message CustomerFinishOrderRequest{
 
 message CustomerCancelOrderRequest{
     required string orderId = 1;
-    required bytes reason = 2;
+    required string reason = 2;
 }
