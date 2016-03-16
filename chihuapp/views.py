@@ -96,13 +96,46 @@ def viewCanteens(request):
         for canteen in canteens:
             canteen_pb = chihu_pb2.Canteen()
             canteen_pb.name = canteen.name
-            canteen_pb.imageUrl = "none"
-            # viewCanteensResponse.canteens.
+            canteen_pb.canteenId = canteen.id
             viewCanteensResponse.canteens.extend([canteen_pb]) 
 
         pbstr = viewCanteensResponse.SerializeToString()
         return HttpResponse(pbstr)
     return HttpResponse("error")
+
+def viewMeals(request):
+    if request.method == 'POST':
+        body = request.body
+        viewMealsRequest = chihu_pb2.ViewMealsRequest()
+        try:
+            viewMealsRequest.ParseFromString(body)
+        except:
+            return HttpResponse("error")
+
+        print("hello1")
+
+        canteenId = viewMealsRequest.canteenId
+        print("hello2")
+        print(canteenId)
+        viewMealsResponse = chihu_pb2.ViewMealsResponse()
+        print("hello3")
+        dishes = Dish.objects.filter(canteen_id=canteenId)
+        print("hello4")
+        for dish in dishes:
+            meal_pb = chihu_pb2.Meal()
+            meal_pb.name = dish.name
+            # meal_pb.price = dish.price
+            price = dish.price
+            meal_pb.price = str(dish.price)
+            print meal_pb.price
+            meal_pb.imageUrl=''
+            viewMealsResponse.meals.extend([meal_pb])
+
+        pbstr = viewMealsResponse.SerializeToString()
+        return HttpResponse(pbstr,content_type="text/plain")
+    print("hell")
+    return HttpResponse("error")
+
 
 def pbtest(request):
     ua = CHIHU_pb2.UserAccount()

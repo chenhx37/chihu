@@ -1,3 +1,4 @@
+
 enum School{
 Sun_Yat_San_University = 1;
 }
@@ -27,7 +28,7 @@ message LoginRequest{
 message Meal{
     required string imageUrl = 1;
     required string name = 2;
-    required float price = 3;
+    required string price = 3;
 }
 
 
@@ -47,7 +48,7 @@ message CheckNetIdRequest{
 
 message Canteen{
     required string name = 1;
-    required string imageUrl = 2;
+    required int32 canteenId = 2;
     repeated string openTimes = 3;
 }
 
@@ -58,13 +59,17 @@ message ViewCanteensResponse{
 }
 
 message ViewMealsRequest{
-    required string canteenId = 1;
+    required int32 canteenId = 1;
+}
+
+message ViewMealsResponse{
+    repeated Meal meals = 1;
 }
 
 message MakeOrderRequest{
-    required string canteenId = 1;
+    required int32 canteenId = 1;
     repeated MealAndNumberPair mealAndNumberPairs = 2;
-    required float totalPrice = 3;
+    required string totalPrice = 3;
 }
 
 message CustomerFinishOrderRequest{

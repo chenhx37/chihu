@@ -10,16 +10,23 @@ class UserPermission(models.Model):
         permissions = (("customer","can use customer version"),
             ("provider","can use customer version"),)
 
+
+######################################
+class TimePeriod(models.Model):
+    Canteen = models.ForeignKey("Canteen")
+    start_time = models.TimeField()
+    end_Time = models.TimeField()
+######################################
+
 class Canteen(models.Model):
     name = models.CharField(max_length=30)
     phone = models.CharField(max_length=30)
-    delivery_time = models.TimeField()
-    
 
 class Dish(models.Model):
+    canteen = models.ForeignKey(Canteen,default=None)
     name = models.CharField(max_length=30)
     price = models.FloatField()
-    pictures = models.URLField()            #可能需要用FileField
+    picture = models.FileField(upload_to='./dish_img',default=None)            #可能需要用FileField
     like = models.IntegerField(default=0)
     dislike = models.IntegerField(default=0)
     score = models.FloatField(default=0)

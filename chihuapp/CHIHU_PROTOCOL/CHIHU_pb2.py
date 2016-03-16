@@ -19,7 +19,7 @@ _sym_db = _symbol_database.Default()
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='chihu.proto',
   package='',
-  serialized_pb=_b('\n\x0b\x63hihu.proto\"4\n\x08Response\x12\x17\n\x06status\x18\x01 \x02(\x0e\x32\x07.Status\x12\x0f\n\x07message\x18\x02 \x01(\t\"Y\n\x0bUserAccount\x12\x10\n\x08username\x18\x01 \x02(\t\x12\x10\n\x08password\x18\x02 \x02(\t\x12\r\n\x05\x65mail\x18\x03 \x02(\t\x12\x17\n\x06school\x18\x04 \x02(\x0e\x32\x07.School\"2\n\x0cLoginRequest\x12\x10\n\x08username\x18\x01 \x02(\t\x12\x10\n\x08password\x18\x02 \x02(\t\"5\n\x04Meal\x12\x10\n\x08imageUrl\x18\x01 \x02(\t\x12\x0c\n\x04name\x18\x02 \x02(\t\x12\r\n\x05price\x18\x03 \x02(\x02\"3\n\x11MealAndNumberPair\x12\x0e\n\x06mealId\x18\x01 \x02(\t\x12\x0e\n\x06number\x18\x02 \x02(\x05\"8\n\x13RegisterUserRequest\x12!\n\x0buserAccount\x18\x01 \x02(\x0b\x32\x0c.UserAccount\"4\n\x11\x43heckNetIdRequest\x12\r\n\x05netid\x18\x01 \x02(\t\x12\x10\n\x08password\x18\x02 \x02(\t\"<\n\x07\x43\x61nteen\x12\x0c\n\x04name\x18\x01 \x02(\t\x12\x10\n\x08imageUrl\x18\x02 \x02(\t\x12\x11\n\topenTimes\x18\x03 \x03(\t\"\x15\n\x13ViewCanteensRequest\"2\n\x14ViewCanteensResponse\x12\x1a\n\x08\x63\x61nteens\x18\x01 \x03(\x0b\x32\x08.Canteen\"%\n\x10ViewMealsRequest\x12\x11\n\tcanteenId\x18\x01 \x02(\t\"i\n\x10MakeOrderRequest\x12\x11\n\tcanteenId\x18\x01 \x02(\t\x12.\n\x12mealAndNumberPairs\x18\x02 \x03(\x0b\x32\x12.MealAndNumberPair\x12\x12\n\ntotalPrice\x18\x03 \x02(\x02\"-\n\x1a\x43ustomerFinishOrderRequest\x12\x0f\n\x07orderId\x18\x01 \x02(\t\"=\n\x1a\x43ustomerCancelOrderRequest\x12\x0f\n\x07orderId\x18\x01 \x02(\t\x12\x0e\n\x06reason\x18\x02 \x02(\t*$\n\x06School\x12\x1a\n\x16Sun_Yat_San_University\x10\x01*\x1f\n\x06Status\x12\x0b\n\x07succeed\x10\x01\x12\x08\n\x04\x66\x61il\x10\x02')
+  serialized_pb=_b('\n\x0b\x63hihu.proto\"4\n\x08Response\x12\x17\n\x06status\x18\x01 \x02(\x0e\x32\x07.Status\x12\x0f\n\x07message\x18\x02 \x01(\t\"Y\n\x0bUserAccount\x12\x10\n\x08username\x18\x01 \x02(\t\x12\x10\n\x08password\x18\x02 \x02(\t\x12\r\n\x05\x65mail\x18\x03 \x02(\t\x12\x17\n\x06school\x18\x04 \x02(\x0e\x32\x07.School\"2\n\x0cLoginRequest\x12\x10\n\x08username\x18\x01 \x02(\t\x12\x10\n\x08password\x18\x02 \x02(\t\"5\n\x04Meal\x12\x10\n\x08imageUrl\x18\x01 \x02(\t\x12\x0c\n\x04name\x18\x02 \x02(\t\x12\r\n\x05price\x18\x03 \x02(\t\"3\n\x11MealAndNumberPair\x12\x0e\n\x06mealId\x18\x01 \x02(\t\x12\x0e\n\x06number\x18\x02 \x02(\x05\"8\n\x13RegisterUserRequest\x12!\n\x0buserAccount\x18\x01 \x02(\x0b\x32\x0c.UserAccount\"4\n\x11\x43heckNetIdRequest\x12\r\n\x05netid\x18\x01 \x02(\t\x12\x10\n\x08password\x18\x02 \x02(\t\"=\n\x07\x43\x61nteen\x12\x0c\n\x04name\x18\x01 \x02(\t\x12\x11\n\tcanteenId\x18\x02 \x02(\x05\x12\x11\n\topenTimes\x18\x03 \x03(\t\"\x15\n\x13ViewCanteensRequest\"2\n\x14ViewCanteensResponse\x12\x1a\n\x08\x63\x61nteens\x18\x01 \x03(\x0b\x32\x08.Canteen\"%\n\x10ViewMealsRequest\x12\x11\n\tcanteenId\x18\x01 \x02(\x05\")\n\x11ViewMealsResponse\x12\x14\n\x05meals\x18\x01 \x03(\x0b\x32\x05.Meal\"i\n\x10MakeOrderRequest\x12\x11\n\tcanteenId\x18\x01 \x02(\x05\x12.\n\x12mealAndNumberPairs\x18\x02 \x03(\x0b\x32\x12.MealAndNumberPair\x12\x12\n\ntotalPrice\x18\x03 \x02(\t\"-\n\x1a\x43ustomerFinishOrderRequest\x12\x0f\n\x07orderId\x18\x01 \x02(\t\"=\n\x1a\x43ustomerCancelOrderRequest\x12\x0f\n\x07orderId\x18\x01 \x02(\t\x12\x0e\n\x06reason\x18\x02 \x02(\t*$\n\x06School\x12\x1a\n\x16Sun_Yat_San_University\x10\x01*\x1f\n\x06Status\x12\x0b\n\x07succeed\x10\x01\x12\x08\n\x04\x66\x61il\x10\x02')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -36,8 +36,8 @@ _SCHOOL = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=825,
-  serialized_end=861,
+  serialized_start=869,
+  serialized_end=905,
 )
 _sym_db.RegisterEnumDescriptor(_SCHOOL)
 
@@ -59,8 +59,8 @@ _STATUS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=863,
-  serialized_end=894,
+  serialized_start=907,
+  serialized_end=938,
 )
 _sym_db.RegisterEnumDescriptor(_STATUS)
 
@@ -219,8 +219,8 @@ _MEAL = _descriptor.Descriptor(
       options=None),
     _descriptor.FieldDescriptor(
       name='price', full_name='Meal.price', index=2,
-      number=3, type=2, cpp_type=6, label=2,
-      has_default_value=False, default_value=0,
+      number=3, type=9, cpp_type=9, label=2,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -359,9 +359,9 @@ _CANTEEN = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='imageUrl', full_name='Canteen.imageUrl', index=1,
-      number=2, type=9, cpp_type=9, label=2,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
+      name='canteenId', full_name='Canteen.canteenId', index=1,
+      number=2, type=5, cpp_type=1, label=2,
+      has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -384,7 +384,7 @@ _CANTEEN = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=432,
-  serialized_end=492,
+  serialized_end=493,
 )
 
 
@@ -406,8 +406,8 @@ _VIEWCANTEENSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=494,
-  serialized_end=515,
+  serialized_start=495,
+  serialized_end=516,
 )
 
 
@@ -436,8 +436,8 @@ _VIEWCANTEENSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=517,
-  serialized_end=567,
+  serialized_start=518,
+  serialized_end=568,
 )
 
 
@@ -450,51 +450,7 @@ _VIEWMEALSREQUEST = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='canteenId', full_name='ViewMealsRequest.canteenId', index=0,
-      number=1, type=9, cpp_type=9, label=2,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=569,
-  serialized_end=606,
-)
-
-
-_MAKEORDERREQUEST = _descriptor.Descriptor(
-  name='MakeOrderRequest',
-  full_name='MakeOrderRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='canteenId', full_name='MakeOrderRequest.canteenId', index=0,
-      number=1, type=9, cpp_type=9, label=2,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='mealAndNumberPairs', full_name='MakeOrderRequest.mealAndNumberPairs', index=1,
-      number=2, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='totalPrice', full_name='MakeOrderRequest.totalPrice', index=2,
-      number=3, type=2, cpp_type=6, label=2,
+      number=1, type=5, cpp_type=1, label=2,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -510,8 +466,82 @@ _MAKEORDERREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=608,
-  serialized_end=713,
+  serialized_start=570,
+  serialized_end=607,
+)
+
+
+_VIEWMEALSRESPONSE = _descriptor.Descriptor(
+  name='ViewMealsResponse',
+  full_name='ViewMealsResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='meals', full_name='ViewMealsResponse.meals', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=609,
+  serialized_end=650,
+)
+
+
+_MAKEORDERREQUEST = _descriptor.Descriptor(
+  name='MakeOrderRequest',
+  full_name='MakeOrderRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='canteenId', full_name='MakeOrderRequest.canteenId', index=0,
+      number=1, type=5, cpp_type=1, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='mealAndNumberPairs', full_name='MakeOrderRequest.mealAndNumberPairs', index=1,
+      number=2, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='totalPrice', full_name='MakeOrderRequest.totalPrice', index=2,
+      number=3, type=9, cpp_type=9, label=2,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=652,
+  serialized_end=757,
 )
 
 
@@ -540,8 +570,8 @@ _CUSTOMERFINISHORDERREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=715,
-  serialized_end=760,
+  serialized_start=759,
+  serialized_end=804,
 )
 
 
@@ -577,14 +607,15 @@ _CUSTOMERCANCELORDERREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=762,
-  serialized_end=823,
+  serialized_start=806,
+  serialized_end=867,
 )
 
 _RESPONSE.fields_by_name['status'].enum_type = _STATUS
 _USERACCOUNT.fields_by_name['school'].enum_type = _SCHOOL
 _REGISTERUSERREQUEST.fields_by_name['userAccount'].message_type = _USERACCOUNT
 _VIEWCANTEENSRESPONSE.fields_by_name['canteens'].message_type = _CANTEEN
+_VIEWMEALSRESPONSE.fields_by_name['meals'].message_type = _MEAL
 _MAKEORDERREQUEST.fields_by_name['mealAndNumberPairs'].message_type = _MEALANDNUMBERPAIR
 DESCRIPTOR.message_types_by_name['Response'] = _RESPONSE
 DESCRIPTOR.message_types_by_name['UserAccount'] = _USERACCOUNT
@@ -597,6 +628,7 @@ DESCRIPTOR.message_types_by_name['Canteen'] = _CANTEEN
 DESCRIPTOR.message_types_by_name['ViewCanteensRequest'] = _VIEWCANTEENSREQUEST
 DESCRIPTOR.message_types_by_name['ViewCanteensResponse'] = _VIEWCANTEENSRESPONSE
 DESCRIPTOR.message_types_by_name['ViewMealsRequest'] = _VIEWMEALSREQUEST
+DESCRIPTOR.message_types_by_name['ViewMealsResponse'] = _VIEWMEALSRESPONSE
 DESCRIPTOR.message_types_by_name['MakeOrderRequest'] = _MAKEORDERREQUEST
 DESCRIPTOR.message_types_by_name['CustomerFinishOrderRequest'] = _CUSTOMERFINISHORDERREQUEST
 DESCRIPTOR.message_types_by_name['CustomerCancelOrderRequest'] = _CUSTOMERCANCELORDERREQUEST
@@ -679,6 +711,13 @@ ViewMealsRequest = _reflection.GeneratedProtocolMessageType('ViewMealsRequest', 
   # @@protoc_insertion_point(class_scope:ViewMealsRequest)
   ))
 _sym_db.RegisterMessage(ViewMealsRequest)
+
+ViewMealsResponse = _reflection.GeneratedProtocolMessageType('ViewMealsResponse', (_message.Message,), dict(
+  DESCRIPTOR = _VIEWMEALSRESPONSE,
+  __module__ = 'chihu_pb2'
+  # @@protoc_insertion_point(class_scope:ViewMealsResponse)
+  ))
+_sym_db.RegisterMessage(ViewMealsResponse)
 
 MakeOrderRequest = _reflection.GeneratedProtocolMessageType('MakeOrderRequest', (_message.Message,), dict(
   DESCRIPTOR = _MAKEORDERREQUEST,
