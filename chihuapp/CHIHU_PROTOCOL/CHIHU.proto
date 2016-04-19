@@ -18,11 +18,18 @@ message UserAccount{
     required string password = 2;
     required string email = 3;
     required School school = 4;
+    required UserType type=  5;
 }
 
 message LoginRequest{
     required string username = 1;
     required string password = 2;
+}
+
+message LoginResponse{
+    required Status status = 1;
+    optional string message = 2;
+    required UserType type = 3;
 }
 
 message Meal{
@@ -72,6 +79,21 @@ message MakeOrderRequest{
     required string totalPrice = 3;
 }
 
+enum UserType{
+    CUSTOMER = 1;
+    PROVIDER = 2;
+}
+
+message Profile{
+    required string username = 1;
+    required string email = 2;
+    optional string netid = 3;
+    optional string phone = 4;
+    optional string address = 5;
+    optional string receiver = 6;
+    required UserType type = 7;
+}
+
 message CustomerFinishOrderRequest{
     required string orderId = 1;
 }
@@ -79,4 +101,35 @@ message CustomerFinishOrderRequest{
 message CustomerCancelOrderRequest{
     required string orderId = 1;
     required string reason = 2;
+}
+
+message AddDishRequest{
+    required string name = 1;
+    required string price = 2;
+    required string canteenId = 3;
+}
+
+message AddCanteenRequest{
+    required string name = 1;
+}
+
+message OrderItem{
+    required string dish_name = 1;
+    required int32 number = 2;
+}
+
+message Order{
+    required string start_time = 1;
+    required string end_time = 2;
+    required string status = 3;
+    required string total_price = 4;
+    repeated OrderItem item_list = 5;
+    required string ordr_id = 6;
+}
+
+message ProviderGetOrderRequest{
+}
+
+message ProviderGetOrderResponse{
+    repeated Order orders = 1;
 }

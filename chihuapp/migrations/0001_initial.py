@@ -17,16 +17,8 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('name', models.CharField(max_length=30)),
-                ('phone', models.CharField(max_length=30)),
-                ('delivery_time', models.TimeField()),
-            ],
-        ),
-        migrations.CreateModel(
-            name='Contact',
-            fields=[
-                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('address', models.CharField(max_length=50)),
-                ('phone_number', models.CharField(max_length=20)),
+                ('phone', models.CharField(max_length=30, null=True)),
+                ('user', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
             ],
         ),
         migrations.CreateModel(
@@ -35,10 +27,11 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('name', models.CharField(max_length=30)),
                 ('price', models.FloatField()),
-                ('pictures', models.URLField()),
+                ('picture', models.FileField(default=None, null=True, upload_to=b'./dish_img')),
                 ('like', models.IntegerField(default=0)),
                 ('dislike', models.IntegerField(default=0)),
                 ('score', models.FloatField(default=0)),
+                ('canteen', models.ForeignKey(default=None, to='chihuapp.Canteen')),
             ],
         ),
         migrations.CreateModel(
@@ -57,7 +50,21 @@ class Migration(migrations.Migration):
                 ('finish_time', models.DateTimeField()),
                 ('status', models.PositiveSmallIntegerField(choices=[(0, b'Finished'), (1, b'Unscored'), (2, b'Canceled'), (3, b'Delivering')])),
                 ('total_price', models.FloatField()),
+                ('receiver', models.CharField(max_length=50)),
+                ('phone', models.CharField(max_length=50)),
+                ('address', models.CharField(max_length=50)),
+                ('customer', models.ForeignKey(related_name='customer', to=settings.AUTH_USER_MODEL)),
                 ('dish_list', models.ManyToManyField(to='chihuapp.DishAndNumberPair')),
+                ('provider', models.ForeignKey(related_name='provider', to=settings.AUTH_USER_MODEL, null=True)),
+            ],
+        ),
+        migrations.CreateModel(
+            name='TimePeriod',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('start_time', models.TimeField()),
+                ('end_Time', models.TimeField()),
+                ('Canteen', models.ForeignKey(to='chihuapp.Canteen')),
             ],
         ),
         migrations.CreateModel(
@@ -73,14 +80,11 @@ class Migration(migrations.Migration):
             name='UserProfile',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('netid', models.CharField(max_length=30)),
-                ('school', models.PositiveSmallIntegerField(choices=[(0, b'SunYatSanUniversity')])),
+                ('netid', models.CharField(max_length=30, null=True)),
+                ('phone', models.CharField(max_length=20, null=True)),
+                ('receiver', models.CharField(max_length=20, null=True)),
+                ('address', models.CharField(max_length=50, null=True)),
                 ('user', models.OneToOneField(to=settings.AUTH_USER_MODEL)),
             ],
-        ),
-        migrations.AddField(
-            model_name='contact',
-            name='user',
-            field=models.ForeignKey(to='chihuapp.UserProfile'),
         ),
     ]

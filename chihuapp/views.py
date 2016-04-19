@@ -38,7 +38,13 @@ def registerCustomer(request):
         user = User.objects.create_user(uname,email,password)
         content_type = ContentType.objects.get_for_model(UserPermission)
 
-        permission = Permission.objects.get(content_type=content_type,codename='customer')
+        userType = userAccount.type
+        print userType
+        if userType == chihu_pb2.CUSTOMER:
+            permission = Permission.objects.get(content_type=content_type,codename='customer')
+        else:
+            permission = Permission.objects.get(content_type=content_type,codename='provider')
+        
         user.user_permissions.add(permission)
         UserProfile.objects.get_or_create(user=user)
 
@@ -54,8 +60,6 @@ def registerCustomer(request):
 def loginUser(request):
     if request.method == "POST":
 
-        print request.COOKIES
-
         body = request.body
         loginRequest = chihu_pb2.LoginRequest()
         loginRequest.ParseFromString(body)
@@ -65,17 +69,26 @@ def loginUser(request):
 
             login(request,user)
 
-            resp = chihu_pb2.Response()
+            resp = chihu_pb2.LoginResponse()
             resp.status = chihu_pb2.succeed
-            resp.message = u'登陆成功'
+
+            print user.get_all_permissions()
+            if user.has_perm('chihuapp.customer'):
+                resp.type = chihu_pb2.CUSTOMER
+                print "customer"
+            else:
+                resp.type = chihu_pb2.PROVIDER
+                print "provider"
 
             pbstr = resp.SerializeToString()
             return HttpResponse(pbstr)
         else:
             print("user is None")
-            resp = chihu_pb2.Response()
+            resp = chihu_pb2.LoginResponse()
             resp.status = chihu_pb2.fail
             resp.message = u'登陆失败'
+            resp.type = chihu_pb2.CUSTOMER
+
             pbstr = resp.SerializeToString()
             return HttpResponse(pbstr)
 
@@ -112,29 +125,137 @@ def viewMeals(request):
         except:
             return HttpResponse("error")
 
-        print("hello1")
-
         canteenId = viewMealsRequest.canteenId
-        print("hello2")
-        print(canteenId)
+        
         viewMealsResponse = chihu_pb2.ViewMealsResponse()
-        print("hello3")
+
         dishes = Dish.objects.filter(canteen_id=canteenId)
-        print("hello4")
+
         for dish in dishes:
             meal_pb = chihu_pb2.Meal()
             meal_pb.name = dish.name
             # meal_pb.price = dish.price
             price = dish.price
             meal_pb.price = str(dish.price)
-            print meal_pb.price
             meal_pb.imageUrl=''
             viewMealsResponse.meals.extend([meal_pb])
 
         pbstr = viewMealsResponse.SerializeToString()
         return HttpResponse(pbstr,content_type="text/plain")
-    print("hell")
     return HttpResponse("error")
+
+def updateProfile(request):
+    if request.method == 'POST':
+        body = request.body
+        profile = chihu_pb2.Profile()
+        try:
+            profile.ParseFromString(body)
+        except:
+            return HttpResponse("error")
+        
+        print request.user
+        user = User.objects.get(username=request.user.username)
+        user.email = profile.email
+        userProfile = user.userprofile
+        userProfile.phone = profile.phone
+        userProfile.receiver = profile.receiver
+        userProfile.address = profile.address
+        userProfile.save()
+        user.save()
+
+        resp = chihu_pb2.Response()
+        resp.status = chihu_pb2.succeed
+        resp.message = u'修改成功'
+        pbstr = resp.SerializeToString()
+        return HttpResponse(pbstr)
+
+    return HttpResponse("error")
+
+def getProfile(request):
+    if request.method == 'POST':
+        user = User.objects.get(username=request.user.username)
+        profile = chihu_pb2.Profile()
+        profile.username = request.user.username
+        profile.email = user.email
+        if user.userprofile.netid is not None:
+            profile.netid = user.userprofile.netid
+        if user.userprofile.phone is not None:
+            profile.phone = user.userprofile.phone
+        if user.userprofile.receiver is not None:
+            profile.receiver = user.userprofile.receiver
+        if user.userprofile.address is not None:
+            profile.address = user.userprofile.address
+
+        if user.has_perm('chihuapp.customer'):
+            profile.type = chihu_pb2.CUSTOMER
+        else :
+            profile.type = chihu_pb2.PROVIDER
+
+        pbstr = profile.SerializeToString()
+
+        return HttpResponse(pbstr,content_type="text/plain")
+
+    return HttpResponse("error")
+
+def getCanteens(request):
+    if request.method=="POST":
+        user = User.objects.get(username=request.user.username)
+        canteens = Canteen.objects.filter(user=user)
+
+        viewCanteensResponse = chihu_pb2.ViewCanteensResponse()
+        for canteen in canteens:
+            canteen_pb = chihu_pb2.Canteen()
+            canteen_pb.name = canteen.name
+            canteen_pb.canteenId = canteen.id
+            viewCanteensResponse.canteens.extend([canteen_pb]) 
+        pbstr = viewCanteensResponse.SerializeToString()
+        return HttpResponse(pbstr,content_type="text/plain")
+
+    else:
+        return HttpResponse("error")
+
+def addDish(request):
+    if request.method=="POST":
+        user = User.objects.get(username=request.user.username)
+
+        addDishRequest = chihu_pb2.AddDishRequest()
+        try:
+            addDishRequest.ParseFromString(request.body)
+        except:
+            return HttpResponse("error")
+
+        canteenId = addDishRequest.canteenId
+        name = addDishRequest.name
+        price = addDishRequest.price
+
+        canteen = Canteen.objects.get(id=canteenId)
+        dish1 = Dish(name=name,price=price,canteen=canteen)
+        dish1.save()
+        print name
+        resp = chihu_pb2.Response()
+        resp.status = chihu_pb2.succeed
+        return HttpResponse(resp.SerializeToString())
+
+    else:
+        return HttpResponse("error")
+
+def addCanteen(request):
+    if request.method=="POST":
+        user = User.objects.get(username=request.user.username)
+        addCanteenRequest = chihu_pb2.AddCanteenRequest()
+        try:
+            addCanteenRequest.ParseFromString(request.body)
+        except:
+            return HttpResponse("error")
+        name = addCanteenRequest.name
+        canteen1 = Canteen(user=user,name=name)
+        canteen1.save()
+        print name
+        resp = chihu_pb2.Response()
+        resp.status = chihu_pb2.succeed
+        return HttpResponse(resp.SerializeToString())
+    else:
+        return HttpResponse("error")
 
 
 def pbtest(request):
